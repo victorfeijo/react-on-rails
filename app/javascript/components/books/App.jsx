@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { toUpper } from 'ramda';
 
 class App extends Component {
   render () {
     const { name } = this.props;
 
     return (
-      <div> Application root { name } </div>
+      <div> Application root { toUpper(name) } </div>
     );
   }
 }
