@@ -1,22 +1,39 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { toUpper } from 'ramda';
+import BooksSearch from './BooksSearch.jsx';
+import BooksList from './BooksList.jsx';
 
-const SearchCnt = styled.div`
+const AppContainer = styled.div`
   border: 2px solid black;
-  margin: 20px;
+  margin: 0 auto;
+  text-align: left;
+  width: 80%;
+  border-radius: 4px;
+
   display: flex;
-  height: 100px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center
+`;
+
+const AppTitle = styled.h1`
+  font-size: 42px;
+  font-style: italic;
+  padding: 20px 0;
 `;
 
 class App extends Component {
   render () {
-    const { name } = this.props;
+    const { books } = this.props;
 
     return (
       <div>
-        Application root { toUpper(name) }
-        <SearchCnt />
+        <AppContainer>
+          <AppTitle> The book shelf </AppTitle>
+          <BooksSearch />
+          <BooksList books={books} />
+        </AppContainer>
       </div>
     );
   }
